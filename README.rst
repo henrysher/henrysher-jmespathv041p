@@ -8,7 +8,7 @@ For example, given this document::
 
     {"foo": {"bar": "baz"}}
 
-The jmespath expression ``foo.bar`` will return "baz".
+The jmespathv041p expression ``foo.bar`` will return "baz".
 
 JMESPath also supports:
 
@@ -33,7 +33,7 @@ The ``*`` can also be used for hash types::
 
 The expression: ``foo.*.name`` will return ["one", "two"].
 
-**NOTE: jmespath is being actively developed.  There are a number
+**NOTE: jmespathv041p is being actively developed.  There are a number
 of features it does not currently support that may be added in the
 future.**
 
@@ -43,16 +43,16 @@ Specification
 
 The grammar is specified using ABNF, as described in `RFC4234`_.
 You can find the most up to date grammar for JMESPath
-`here <http://jmespath.readthedocs.org/en/latest/specification.html#grammar>`__.
+`here <http://jmespathv041p.readthedocs.org/en/latest/specification.html#grammar>`__.
 
 You can read the full JMESPath specification
-`here http://jmespath.readthedocs.org/en/latest/specification.html`__.
+`here http://jmespathv041p.readthedocs.org/en/latest/specification.html`__.
 
 
 Testing
 =======
 
-In addition to the unit tests for the jmespath modules,
+In addition to the unit tests for the jmespathv041p modules,
 there is a ``tests/compliance`` directory that contains
 .json files with test cases.  This allows other implementations
 to verify they are producing the correct output.  Each json
@@ -63,21 +63,21 @@ Python Library
 
 The included python implementation has two convenience functions
 that operate on python data structures.  You can use ``search``
-and give it the jmespath expression and the data::
+and give it the jmespathv041p expression and the data::
 
-    >>> import jmespath
-    >>> path = jmespath.search('foo.bar', {'foo': {'bar': 'baz'}})
+    >>> import jmespathv041p
+    >>> path = jmespathv041p.search('foo.bar', {'foo': {'bar': 'baz'}})
     'baz'
 
 Similar to the ``re`` module, you can store the compiled expressions
 and reuse them to perform repeated searches::
 
-    >>> import jmespath
-    >>> path = jmespath.compile('foo.bar')
+    >>> import jmespathv041p
+    >>> path = jmespathv041p.compile('foo.bar')
     >>> path.search({'foo': {'bar': 'baz'}})
     'baz'
     >>> path.search({'foo': {'bar': 'other'}})
     'other'
 
-You can also use the ``jmespath.parser.Parser`` class directly
+You can also use the ``jmespathv041p.parser.Parser`` class directly
 if you want more control.

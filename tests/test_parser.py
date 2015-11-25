@@ -2,11 +2,11 @@
 
 from tests import unittest, as_s_expression
 
-from jmespath import parser
-from jmespath import ast
-from jmespath import lexer
-from jmespath import compat
-from jmespath import exceptions
+from jmespathv041p import parser
+from jmespathv041p import ast
+from jmespathv041p import lexer
+from jmespathv041p import compat
+from jmespathv041p import exceptions
 
 
 class TestParser(unittest.TestCase):
@@ -131,14 +131,14 @@ class TestErrorMessages(unittest.TestCase):
 
     def test_bad_parse_error_message_with_multiselect(self):
         error_message = (
-            'Invalid jmespath expression: Incomplete expression:\n'
+            'Invalid jmespathv041p expression: Incomplete expression:\n'
             '"foo.{bar: baz,bar: bar"\n'
             '                       ^')
         self.assert_error_message('foo.{bar: baz,bar: bar', error_message)
 
     def test_bad_lexer_values(self):
         error_message = (
-            'Bad jmespath expression: '
+            'Bad jmespathv041p expression: '
             'Starting quote is missing the ending quote:\n'
             'foo."bar\n'
             '    ^')
@@ -146,14 +146,14 @@ class TestErrorMessages(unittest.TestCase):
                                   exception=exceptions.LexerError)
 
     def test_bad_lexer_literal_value_with_json_object(self):
-        error_message = ('Bad jmespath expression: '
+        error_message = ('Bad jmespathv041p expression: '
                          'Bad token `{{}`:\n`{{}`\n^')
         self.assert_error_message('`{{}`', error_message,
                                   exception=exceptions.LexerError)
 
 
     def test_bad_unicode_string(self):
-        error_message = ('Bad jmespath expression: '
+        error_message = ('Bad jmespathv041p expression: '
                          'Invalid \\uXXXX escape:\n"\\uAZ12"\n^')
         self.assert_error_message(r'"\uAZ12"', error_message,
                                   exception=exceptions.LexerError)

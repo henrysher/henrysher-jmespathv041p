@@ -2,17 +2,17 @@ import operator
 import math
 import json
 
-from jmespath.compat import with_repr_method
-from jmespath.compat import string_type as STRING_TYPE
-from jmespath.compat import zip_longest
-from jmespath.exceptions import JMESPathTypeError, UnknownFunctionError
+from jmespathv041p.compat import with_repr_method
+from jmespathv041p.compat import string_type as STRING_TYPE
+from jmespathv041p.compat import zip_longest
+from jmespathv041p.exceptions import JMESPathTypeError, UnknownFunctionError
 
 
 NUMBER_TYPE = (float, int)
 _VARIADIC = object()
 
 
-# python types -> jmespath types
+# python types -> jmespathv041p types
 TYPES_MAP = {
     'bool': 'boolean',
     'list': 'array',
@@ -28,7 +28,7 @@ TYPES_MAP = {
 }
 
 
-# jmespath types -> python types
+# jmespathv041p types -> python types
 REVERSE_TYPES_MAP = {
     'boolean': ('bool',),
     'array': ('list', '_Projection'),
@@ -203,7 +203,7 @@ class ORExpression(AST):
     def _is_false(self, value):
         # This looks weird, but we're explicitly using equality checks
         # because the truth/false values are different between
-        # python and jmespath.
+        # python and jmespathv041p.
         return (value == '' or value == [] or value == {} or value is None or
                 value == False)
 
@@ -380,7 +380,7 @@ class FunctionExpression(AST):
             # of each element.
             allowed_types, allowed_subtypes = _get_allowed_pytypes(types)
             # We're not using isinstance() on purpose.
-            # The type model for jmespath does not map
+            # The type model for jmespathv041p does not map
             # 1-1 with python types (booleans are considered
             # integers in python for example).
             actual_typename = type(current).__name__

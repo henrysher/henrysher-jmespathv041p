@@ -87,12 +87,12 @@ the current grammar, one must rely on the environment's ability to input
 control characters such as the newline (``%x0A``).  This can be problematic
 in certain environments.  For example, in python, this is not a problem::
 
-    >>> jmespath_expression = "foo\nbar"
+    >>> jmespathv041p_expression = "foo\nbar"
 
 Python will interpret the sequence ``"\n"`` (``%x5C %x6E``) as the newline
 character ``%x0A``.  However, consider Bash::
 
-    $ foo --jmespath-expression "foo\nbar"
+    $ foo --jmespathv041p-expression "foo\nbar"
 
 In this situation, bash will not interpret the ``"\n"`` (``%x5C %x6E``) sequence.
 

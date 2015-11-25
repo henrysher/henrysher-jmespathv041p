@@ -2,7 +2,7 @@
 """Generate performance diagnostics.
 
 The purpose of this script is to generate performance diagnostics for
-various jmespath expressions to be able to track the performance
+various jmespathv041p expressions to be able to track the performance
 over time.  The test files are data driven similar to the
 compliance tests.
 """
@@ -12,8 +12,8 @@ import os
 import json
 import sys
 
-from jmespath.parser import Parser
-from jmespath.lexer import Lexer
+from jmespathv041p.parser import Parser
+from jmespathv041p.lexer import Lexer
 
 
 DIRECTORY = os.path.join(os.path.dirname(os.path.abspath(__file__)))

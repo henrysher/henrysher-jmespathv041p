@@ -4,9 +4,9 @@ import sys
 import json
 import argparse
 
-import jmespath
-from jmespath import exceptions
-from jmespath.compat import OrderedDict
+import jmespathv041p
+from jmespathv041p import exceptions
+from jmespathv041p.compat import OrderedDict
 
 
 def main():
@@ -25,7 +25,7 @@ def main():
     expression = args.expression
     if args.ast:
         # Only print the AST
-        expression = jmespath.compile(args.expression)
+        expression = jmespathv041p.compile(args.expression)
         sys.stdout.write(str(expression))
         sys.stdout.write('\n')
         return 0
@@ -40,7 +40,7 @@ def main():
             data = json.loads(data)
     try:
         sys.stdout.write(json.dumps(
-            jmespath.search(expression, data), indent=4))
+            jmespathv041p.search(expression, data), indent=4))
         sys.stdout.write('\n')
     except exceptions.ArityError as e:
         sys.stderr.write("invalid-arity: %s\n" % e)

@@ -1,4 +1,4 @@
-from jmespath.compat import with_str_method
+from jmespathv041p.compat import with_str_method
 
 
 class JMESPathError(ValueError):
@@ -7,7 +7,7 @@ class JMESPathError(ValueError):
 
 @with_str_method
 class ParseError(JMESPathError):
-    _ERROR_MESSAGE = 'Invalid jmespath expression'
+    _ERROR_MESSAGE = 'Invalid jmespathv041p expression'
     def __init__(self, lex_position, token_value, token_type,
                  msg=_ERROR_MESSAGE):
         super(ParseError, self).__init__(lex_position, token_value, token_type)
@@ -40,7 +40,7 @@ class IncompleteExpressionError(ParseError):
         # self.lex_position +1 to account for the starting double quote char.
         underline = ' ' * (self.lex_position + 1) + '^'
         return (
-            'Invalid jmespath expression: Incomplete expression:\n'
+            'Invalid jmespathv041p expression: Incomplete expression:\n'
             '"%s"\n%s' % (self.expression, underline))
 
 
@@ -58,7 +58,7 @@ class LexerError(ParseError):
 
     def __str__(self):
         underline = ' ' * self.lexer_position + '^'
-        return 'Bad jmespath expression: %s:\n%s\n%s' % (
+        return 'Bad jmespathv041p expression: %s:\n%s\n%s' % (
             self.message, self.expression, underline)
 
 

@@ -2,13 +2,13 @@
 JMESPath Specification
 ======================
 
-This document describes the specification for jmespath.
+This document describes the specification for jmespathv041p.
 In the specification, examples are shown through the use
 of a ``search`` function.  The syntax for this function is::
 
-    search(<jmespath expr>, <JSON document>) -> <return value>
+    search(<jmespathv041p expr>, <JSON document>) -> <return value>
 
-For simplicity, the jmespath expression and the JSON document are
+For simplicity, the jmespathv041p expression and the JSON document are
 not quoted.  For example::
 
     search(foo, {"foo": "bar"}) -> "bar"
@@ -212,7 +212,7 @@ subexpressions: ``grandparent.parent.child``.
 Examples
 --------
 
-Given a JSON document: ``{"foo": {"bar": "baz"}}``, and a jmespath expression:
+Given a JSON document: ``{"foo": {"bar": "baz"}}``, and a jmespathv041p expression:
 ``foo.bar``, the evaluation process would be::
 
   left-evaluation = search("foo", {"foo": {"bar": "baz"}}) -> {"bar": "baz"}

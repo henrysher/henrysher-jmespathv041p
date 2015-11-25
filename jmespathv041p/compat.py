@@ -6,7 +6,7 @@ if PY2:
     text_type = unicode
     string_type = basestring
     from itertools import izip_longest as zip_longest
-    LR_TABLE = 'jmespath._lrtable'
+    LR_TABLE = 'jmespathv041p._lrtable'
 
     def with_str_method(cls):
         """Class decorator that handles __str__ compat between py2 and py3."""
@@ -32,7 +32,7 @@ if PY2:
         cls.__repr__ = __repr__
         return cls
 else:
-    LR_TABLE = 'jmespath._lrtable3'
+    LR_TABLE = 'jmespathv041p._lrtable3'
     text_type = str
     string_type = str
     from itertools import zip_longest

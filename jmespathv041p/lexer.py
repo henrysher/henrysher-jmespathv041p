@@ -1,7 +1,7 @@
 import re
 from json import loads
 
-from jmespath.exceptions import LexerError
+from jmespathv041p.exceptions import LexerError
 
 
 class Lexer(object):

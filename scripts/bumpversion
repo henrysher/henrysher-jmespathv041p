@@ -21,7 +21,7 @@ def open_file(filename, mode='r'):
 def bump_version(version):
     update_sphinx_conf(version)
     update_setup_py(version)
-    update_jmespath__init__(version)
+    update_jmespathv041p__init__(version)
     show_git_diff()
     response = input("Accept changes? ").strip()
     if response.lower().startswith('y'):
@@ -48,13 +48,13 @@ def update_sphinx_conf(version):
         f.write(''.join(lines))
 
 
-def update_jmespath__init__(version):
-    with open_file('jmespath/__init__.py') as f:
+def update_jmespathv041p__init__(version):
+    with open_file('jmespathv041p/__init__.py') as f:
         lines = f.readlines()
     for i, line in enumerate(lines):
         if line.startswith('__version__ ='):
             lines[i] = "__version__ = '%s'\n" % version
-    with open_file('jmespath/__init__.py', 'w') as f:
+    with open_file('jmespathv041p/__init__.py', 'w') as f:
         f.write(''.join(lines))
 
 

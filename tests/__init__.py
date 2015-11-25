@@ -1,5 +1,5 @@
 import sys
-from jmespath import ast
+from jmespathv041p import ast
 
 
 # The unittest module got a significant overhaul

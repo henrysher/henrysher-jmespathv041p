@@ -82,7 +82,7 @@ html_theme_options = html_theme_options = {
 
     # Set your GitHub user and repo to enable GitHub stars links
     "github_user": "boto",
-    "github_repo": "jmespath",
+    "github_repo": "jmespathv041p",
 
     # Set to true to bind left and right key events to turn the page
     "bind_key_events": 1,

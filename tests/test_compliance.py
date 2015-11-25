@@ -5,7 +5,7 @@ from tests import json
 
 from nose.tools import assert_equal
 
-import jmespath
+import jmespathv041p
 
 
 TEST_DIR = os.path.join(
@@ -53,12 +53,12 @@ def _load_cases(full_path):
 
 
 def _test_expression(given, expression, expected, filename):
-    import jmespath.parser
+    import jmespathv041p.parser
     try:
-        parsed = jmespath.compile(expression)
+        parsed = jmespathv041p.compile(expression)
     except ValueError as e:
         raise AssertionError(
-            'jmespath expression failed to compile: "%s", error: %s"' %
+            'jmespathv041p expression failed to compile: "%s", error: %s"' %
             (expression, e))
     actual = parsed.search(given)
     expected_repr = json.dumps(expected, indent=4)
@@ -72,12 +72,12 @@ def _test_expression(given, expression, expected, filename):
 
 
 def _test_error_expression(given, expression, error, filename):
-    import jmespath.parser
+    import jmespathv041p.parser
     if error not in ('syntax', 'invalid-type',
                      'unknown-function', 'invalid-arity'):
         raise RuntimeError("Unknown error type '%s'" % error)
     try:
-        parsed = jmespath.compile(expression)
+        parsed = jmespathv041p.compile(expression)
         parsed.search(given)
     except ValueError as e:
         # Test passes, it raised a parse error as expected.

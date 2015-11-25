@@ -13,7 +13,7 @@ For example, given this document::
 
     {"foo": {"bar": "baz"}}
 
-The jmespath expression ``foo.bar`` will return "baz".
+The jmespathv041p expression ``foo.bar`` will return "baz".
 
 
 Contents:

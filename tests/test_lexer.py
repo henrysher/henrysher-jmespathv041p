@@ -1,7 +1,7 @@
 from tests import unittest
 
-from jmespath import lexer
-from jmespath.exceptions import LexerError
+from jmespathv041p import lexer
+from jmespathv041p.exceptions import LexerError
 
 
 class TestRegexLexer(unittest.TestCase):

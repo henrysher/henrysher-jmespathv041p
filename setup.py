@@ -24,13 +24,13 @@ if sys.version_info[:2] == (2, 6):
 
 
 setup(
-    name='jmespath',
+    name='jmespathv041p',
     version='0.4.1',
     description='JSON Matching Expressions',
     long_description=io.open('README.rst', encoding='utf-8').read(),
     author='James Saryerwinnie',
     author_email='js@jamesls.com',
-    url='https://github.com/boto/jmespath',
+    url='https://github.com/henrysher/jmespathv041p',
     scripts=['bin/jp'],
     packages=find_packages(exclude=['tests']),
     install_requires=requires,

@@ -19,7 +19,7 @@ A few notes on the implementation.
   then one pass through the tokens to create the AST.  While the lexer actually
   yields tokens, we convert it to a list so we can easily implement two tokens
   of lookahead.  A previous implementation used a fixed circular buffer, but it
-  was significantly slower.  Also, the average jmespath expression typically
+  was significantly slower.  Also, the average jmespathv041p expression typically
   does not have a large amount of token so this is not an issue.  And
   interestingly enough, creating a token list first is actually faster than
   consuming from the token iterator one token at a time.
@@ -27,10 +27,10 @@ A few notes on the implementation.
 """
 import random
 
-from jmespath import lexer
-from jmespath.compat import with_repr_method
-from jmespath import ast
-from jmespath import exceptions
+from jmespathv041p import lexer
+from jmespathv041p.compat import with_repr_method
+from jmespathv041p import ast
+from jmespathv041p import exceptions
 
 
 class Parser(object):
